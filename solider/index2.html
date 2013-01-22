@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>侧边</title>
+    <meta charset ="utf-8"/>
+    <style>
+           body{overflow:hidden;}
+           dl,dt,dd{margin:0px;padding:0px;font-size:12px;}
+           dl{width:175px;background-color:#ddd;position:absolute; right:-155px;cursor: pointer;}
+           dt{width:10%;background:orange;float:left;text-align:center;color:#fff;padding:5px 0px;font-weight:bold;}
+           dd{width:90%;}
+           dd a{margin:5px; color:red;}
+    </style>
+ <script>
+ window.onload = function(){ 
+    var $,locus,s,t,flag;
+    $ = function(ele){
+        var useEle =  ele.substring("1",ele.length);      
+        if(ele.indexOf("#") == 0){
+                ele = document.getElementById(useEle); 
+        }else if(ele.indexOf(".") == 0){
+            var arry = [],currentNode,
+            nodelist = document.getElementsByTagName("*");
+            for(i=0; i < nodelist.length; i++){
+                if(nodelist[i].className == useEle) ele = nodelist[i];
+            }     
+        }
+        ele.getStyle = function(pro,uprose){
+               uprose ? uprose = uprose: uprose = null ;
+              //return getComputedStyle(this,null)[pro];//中括号这块比较特殊 考虑到hash算法 如果点后面跟的是字符串就必须用中括号而不能用点
+              if(document.all){
+                return this.currentStyle[pro];
+               }else{
+                return getComputedStyle(this,null)[pro];
+               }  
+        }
+        return ele;
+    }
+    s = parseInt($("#box").getStyle("right"));
+    t = 8;
+    /*运动轨迹函数*/
+    locus = function(){
+        var  v,a,right = [];
+        v = 30; 
+        a = 2*(s - v*t)/t;
+        for(i= t;i>=0 ; i--){
+            right[i] = v*i + (a*i)/2;
+        }
+        return right;
+    }
+    changeRight = function(){
+     var s1 = locus();
+         if(flag > 0){
+             if( t >= 0){  
+              $("#box").style.right = s1[t]+"px";
+                t--;
+              }else{
+               $("#box").style.right = "0px";
+                clearInterval(num);
+                t =0 ;
+              }
+         }else{
+            if( t < 9){  
+              $("#box").style.right = s1[t]+"px";
+                t++;
+              }else{
+               $("#box").style.right = s+"px";
+                clearInterval(num);
+                t = 8 ;
+              } 
+         }
+    }
+    $("#box").onmouseenter = function(){
+        flag = 1;
+        num = setInterval(changeRight,10);
+    }
+    $("#box").onmouseleave =  function(){
+        flag = -1;
+        num = setInterval(changeRight,10);
+    }
+}
+</script> 
+</head>
+<body>
+<dl id="box">
+    <dt>侧边导航</dt>
+    <dd>
+    <a href="">QQ1</a><a href="">QQ2</a><a href="">QQ3</a><a href="">QQ4</a>
+    </dd>
+</dl>
+</body>
+</html>

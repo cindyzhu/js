@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>侧边</title>
+    <meta charset ="utf-8"/>
+    <style>
+            body{overflow:hidden;}
+           dl,dt,dd{margin:0px;padding:0px;font-size:12px;}
+           dl{width:175px;background-color:#ddd;position:absolute; right:-155px;cursor: pointer;}
+           /*dl:hover{right:0px;}
+           dl:hover{right:0px; -moz-transition:right 1s ease-out;}*/
+           @-moz-keyframes show{0%{right:-155px} 30%{right:-110px} 50%{right:-90px} 90%{right:-50x;} 100%{right:0px;}}
+           dl:hover{-moz-animation:show 1s linear;right:0px;}
+           dt{width:10%;background:orange;float:left;text-align:center;color:#fff;padding:5px 0px;font-weight:bold;}
+           dd{width:90%;}
+           dd a{margin:5px; color:red;}
+    </style>
+  
+</head>
+<body>
+<dl id="box">
+    <dt>侧边导航</dt>
+    <dd>
+    <a href="">QQ1</a><a href="">QQ2</a><a href="">QQ3</a><a href="">QQ4</a>
+    </dd>
+</dl>
+ <!--<script>
+    var showSolider,$,num,flag,s,t,v;
+    t = 5;
+    //封装基本函数
+    $ = function(id){
+        var ele = document.getElementById(id);
+        ele.getStyle = function(pro,uprose){
+           uprose ? uprose = uprose: uprose = null ;
+          //return getComputedStyle(this,null)[pro];//中括号这块比较特殊 考虑到hash算法 如果点后面跟的是字符串就必须用中括号而不能用点
+          if(document.all){
+            return this.currentStyle[pro];
+           }else{
+            return getComputedStyle(this,null)[pro];
+           }          
+
+        }
+        return ele;
+    }
+    //知识点：document.all判断是否为ie浏览器
+    //动画函数
+    showSolider = function(){            
+                if(flag >0){
+                    for(i=0;i< t;i++){
+                        if(parseInt($("box").getStyle("right"))>0){
+                            
+                                $("box").style.right = parseInt($("box").getStyle("right"))+v*i+"px";
+                            
+                        }else{
+                        $("box").style.right = "0px";
+                         clearInterval(num);
+                        }
+                    }
+                }else{
+                    for(i=0;i< t;i++){
+                        if(parseInt($("box").getStyle("right"))>s){
+                                $("box").style.right = parseInt($("box").getStyle("right"))-v*i+"px";
+                           
+                        }else{
+                            $("box").style.right = s+"px";
+                             clearInterval(num);
+                        }
+                     }
+                   
+                }
+
+    }
+    //触发函数
+    s = parseInt($("box").getStyle("right"));
+    v = -parseInt($("box").getStyle("right"))/t;
+    $("box").onmouseenter= function(e){
+        flag = 1;
+        num = setInterval(showSolider,10); 
+     }
+    $("box").onmouseleave = function(e){
+       flag = -1;
+       num = setInterval(showSolider,10); 
+     }
+
+    </script>
+    -->
+</body>
+</html>
