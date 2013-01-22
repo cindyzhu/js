@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf=8"/>
+    <title>google-item</title>
+    <style>
+        .button{ width:469px; height:162px; position:absolute;left:30%; z-index:1; text-align:center; line-height:206px;}
+        .mask{ width:469px; height:162px;position:absolute;left:30%; z-index:2; background-image:url(i11/2.png);background-repeat: no-repeat;text-align:center;line-height:206px;}
+        .box{ width:68px; height:162px;position:absolute;left:30%; z-index:0; background-image:url(i11/muybridge12-hp-f.jpg);}
+        .but-on{width:469px;height:55px;margin: 0 auto;position: relative;top: 33%; cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+  window.onload = function(){
+    var $,itemWidth,move,i;
+    itemWidth = 68;
+    $ = function(ele){
+        var useEle =  ele.substring("1",ele.length);      
+        if(ele.indexOf("#") == 0){
+                ele = document.getElementById(useEle); 
+        }else if(ele.indexOf(".") == 0){
+            var arry = [],currentNode,
+            nodelist = document.getElementsByTagName("*");
+            for(i=0; i < nodelist.length; i++){
+                if(nodelist[i].className == useEle){ ele = nodelist[i]};
+            }     
+        }
+        ele.getStyle = function(pro,uprose){
+               uprose ? uprose = uprose: uprose = null ;
+              //return getComputedStyle(this,null)[pro];//中括号这块比较特殊 考虑到hash算法 如果点后面跟的是字符串就必须用中括号而不能用点
+              if(document.all){
+                return this.currentStyle[pro];
+               }else{
+                return getComputedStyle(this,null)[pro];
+               }  
+        }
+        return ele;
+    }
+    n=0;
+    move = function(){
+    n+=1;
+   // alert('"'+-68*n+'px 0px"');
+        $(".box").style.backgroundPosition = "0px "+-5*n+"px"; 
+       setTimeout(move,50)
+    } 
+    move();
+      
+     // setTimeout
+}
+    </script>
+</body>
+</html>

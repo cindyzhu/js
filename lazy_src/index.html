@@ -1,0 +1,24 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <style>body{margin:0px;padding:0px;}</style>
+
+    </head>
+    <body>
+        <img src="1.jpg"/>
+        <img lazy_src="2.jpg"/>
+                <script>
+            document.body.onscroll = function(){
+               var imgs,aa;
+               height = document.body.scrollTop + document.body.clientHeight;
+               imgs = document.getElementsByTagName("img");
+               
+             setTimeout(function(){if(height >= imgs[1].offsetTop)
+            {
+                imgs[1].src = imgs[1].getAttribute("lazy_src");
+            }},1000);
+          }
+        </script>
+    </body>
+</html>

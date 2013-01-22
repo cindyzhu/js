@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>DOM联系</title>
+<meta charset="utf-8">
+<!--[if IE]>  
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>  
+<![endif]-->
+<style>
+#s,nav{cursor:pointer;}
+.red{color:red;}
+.blue{color:blue;}
+</style>
+<script>
+var checkForm;
+checkForm = function(){
+	var userName,passWord,repassWord;
+	userName=document.form("userName");
+	passWord=document.form("passWord");
+	repassWord=document.form("repassWord");
+	alert(userName);
+}
+</script>
+</head>
+<body>
+<form onsubmit="return checkForm()">
+	<lable>Username：</lable>
+	<input type="text" placeholder="doudou" autofocus id="userName"/>
+	<lable>Password:</lable>
+	<input type="password" value="" class="passWord"/>
+	<lable>Confirm password</lable>
+	<input type="password" value="" class="repassWord" />
+	<input type="submit" value="submit"/>
+	</form>
+</body>
+</html>

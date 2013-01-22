@@ -1,0 +1,27 @@
+<!DOCTYLE HTML>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>拼图</title>
+        <script src="i11/public.js"></script>
+        <script src="i11/drag.js"></script>
+        <style>
+        body{margin:0px; padding:0px;}
+        .box{width:450px;border:1px solid #000;height:472px;}
+        .big{background:url("i11/big.png") no-repeat; width:313px; height:472px;border-right:1px solid #000;float:left; }
+        .small{background:url(i11/small.png) no-repeat;width:113px; height:130px;float:right;cursor:pointer;position:absolute;left:330px; }
+        .small_area{ height: 128px;left: 132px;position: absolute;top:62px;width: 112px;}
+         #line{background-color:red;height:1px; pading:0px; margin:0px; width:1px; dispaly:inline;}
+        </style>
+    </head>
+    <body>
+    <div class="box">
+        <div class="big">
+            <div class="small_area">
+            </div>
+        </div>
+        <div class="small"></div>  
+    </div>
+    <div id="line"></div>
+    </body>
+</html>

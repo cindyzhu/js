@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf=8"/>
+    <title>google-item</title>
+    <style>
+
+        .example_path{width:469px; height:162px;overflow: hidden;position: relative;}
+        .example_block{width:469px; height:162px;position:absolute;left:30%; z-index:0; background-image:url(i11/muybridge12-hp-f.jpg);}
+    </style>
+</head>
+<body>
+  <div class="example_path" onclick="move(this.children[0], back)">
+    <div class="example_block"></div>
+</div>
+<script>
+function animate(opts) {  
+ var start = new Date     
+ var id = setInterval(function() {  
+ var timePassed = new Date - start  
+ var progress = timePassed / opts.duration  
+ if (progress > 1) progress = 1  
+ var delta = opts.delta(progress)  
+ opts.step(delta)  
+ if (progress == 1) {  
+ clearInterval(id)  
+ }  
+ }, opts.delay || 10)      
+ } 
+function move(element, delta, duration) {
+	  var to = 500	   
+	  animate({
+	    delay: 10,
+	    duration: duration || 1000, // 1 sec by default
+	    delta: delta,
+	    step: function(delta) {
+	      element.style.backgroundPosition ='"'+to*delta+'px 0px"';   
+	    }
+	  })
+	}
+function back(progress, x) {
+        x = 1.5;
+        return Math.pow(progress, 2) * ((x + 1) * progress - x)
+}
+</script>
+</body>
+</html>

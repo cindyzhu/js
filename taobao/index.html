@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>taobao</title>                                                                                                                                                                                                                                                                
+<script type="text/javascript" src="../jquery-1.7.2"></script>
+<script>
+ $(function(){
+    var  _scroll = [], _scrollRain, n = 0;
+	_scroll = {
+		imgArray : ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png', '7.png', '8.png', '9.png', '10.png', '11.png', '12.png'],
+		cur :0
+	}
+	_scroll.set = function(cur) {
+	//console.log(cur);
+	this.cur = cur;
+		$('.scrollLeft a').eq(0).css('backgroundImage','url(i11/'+ this.imgArray[this.cur] +')');
+		$('.scrollLeft a').eq(1).css('backgroundImage','url(i11/'+ this.imgArray[this.cur + 1] +')');
+		$('.scrollRight a').eq(0).css('background-image','url(i11/'+ this.imgArray[this.cur + 2] +')');
+		$('.scrollRight a').eq(1).css('background-image','url(i11/'+ this.imgArray[this.cur + 3] +')');
+	}
+	_scrollRain = function() {
+		_scroll.set(_scroll.cur);
+		$(window).on('scroll', function(e){
+			var offsetTop = $(this).scrollTop() + $(this).height()/5;
+			//$(this).height()+"____"+$(this).scrollTop();
+			 //$(".scrollLeft,.scrollRight").show();  
+			 $(".scrollLeft,.scrollRight").animate({ top: offsetTop + "px"}, { duration: 600, queue: false });  
+			//$(".scrollLeft,.scrollRight").css(top ,offsetTop + "px");		
+			if($(this).scrollTop() > $(this).height()*(n+1) && n < _scroll.imgArray.length/4) {
+				
+				_scroll.set(4*n);
+				n +=1;
+				//$(".scrollLeft,.scrollRight").css({top:offsetTop+1000, opacity:0});
+				//$(".scrollLeft,.scrollRight").animate({ top:offsetTop + "px" ,opacity :1},'slow');  
+			}
+     	});
+	
+    }
+	window.scrollRain = _scrollRain;
+    scrollRain();
+ })
+</script>
+<style>
+body{margin:0px;padding:0px;}
+.wrap{width:80%;border:1px solid red;margin:0px auto;height:3800px;}
+.scrollLeft{left:0px; border:1px solid green; position: absolute;top: 10%; width:10%;}
+.scrollLeft a, .scrollRight a{width:50px; height:50px;text-indent:-99999px;margin:20px auto;display: block;  -moz-animation:animations2 1.5s ease-in infinite;background-size:95%;background-repeat:no-repeat; }
+.scrollLeft a:hover, .scrollRight a:hover{background-size:100%;width:60px; height:60px;}
+.scrollRight{right:0px; border:1px solid blue; position: absolute;top: 10%;width:10%;}
+/*@-moz-keyframes animations1{
+	0%{-moz-transform:translate(0,500px)}
+	25%{-moz-transform:translate(0,30px)}
+	50%{-moz-transform:translate(0,40px);}
+	75%{-moz-transform:translate(0,50px);}
+	100%{-moz-transform:translate(0,60px);}
+}*/
+@-moz-keyframes animations2{
+	0%{-moz-transform:translate(0,0);}
+	10%{-moz-transform:translate(1px,0);}
+	25%{-moz-transform:translate(2px,2px);}
+	50%{-moz-transform:translate(4px,4px);}
+	75%{-moz-transform:translate(2px,2px);}
+	90%{-moz-transform:translate(1px,2px);}
+	100%{-moz-transform:translate(0px,0);}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+</style>	
+</head>
+<body>
+	<div class="wrap"></div>
+	<div class="scrollLeft">
+		<a href="#">test</a>
+		<a href="#">test12313</a>
+	</div>
+	<div class="scrollRight">
+	<a href="#">test111</a>
+	<a href="#">111</a>
+	</div>    
+</body>
+</html>

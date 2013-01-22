@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="public.js"></script>
+<script>
+window.onload = function() {
+    var obj = $('#pimg').src;
+    var num = 6, nodesLength = 0, box = [], pos = [], place = 0;
+    function dom(x,y) {
+        $('#result').appendChild(document.createElement('div'));
+    }
+    function element() {
+      var domStr = "";
+      for( i = 0; i < num; i++) {
+        domStr += "<div id=" + i + "></div>";
+      }
+      return domStr;
+    }
+   /* function setEleStyle(ele) {
+        this.ele = ele;
+    }*/
+    function setStyle(ele, x, y, eleW, eleH) {
+       ele.style.backgroundImage = "url('"+obj+"')";
+       ele.style.backgroundRepeat = "no-repeat";
+       if (document.all) {
+          ele.style.backgroundPositionX = -x + "px";
+          ele.style.backgroundPositionY = -y + "px";
+       } else {
+          ele.style.backgroundPosition = -x + "px " + -y + "px";
+       }
+          ele.style.width = eleW + "px";
+          ele.style.height = eleH + "px";
+    }
+    function eachNodes() {
+        nodesLength = $('#result').childNodes.length;
+        var eleW = parseInt($('#result').offsetWidth / 3);
+        var eleH = parseInt($('#result').offsetHeight / 2) - 1;
+       //console.log(Math.round(eleW) + "_____" +Math.round(eleH));
+        for (i = 0; i < nodesLength-1; i++) {
+			i%3 == 2 ? eleX = eleW*(i%3)-1:eleX = eleW*(i%3);
+            setStyle($('#result').childNodes[i], eleX, eleH*parseInt(i/3), eleW, eleH);
+        }
+    }
+    $('#result').innerHTML = element();
+   // $('#content').innerHTML = element();
+   //判断某元素是否在数组中存在
+    function check(receiveArray,　checkItem, index) {
+        for (var i=0; i < receiveArray.length ; i++) {
+        //console.log(receiveArray[i] + "--------" +checkItem);
+          if (receiveArray[i] == checkItem) {
+		  if(index) { return i}else{ return true ;}
+            break;
+          }
+        }
+    }
+    eachNodes();
+    function radomSetCont(){
+        var randomNum = Math.floor(Math.random() * nodesLength);
+           if (!check(box,randomNum) && randomNum != (nodesLength-1)) {
+                box.push(randomNum);
+                $('#content').appendChild($('#result').childNodes[randomNum].cloneNode(true));
+            }
+			place = nodesLength-1;
+    }   
+    while ($('#content').childNodes.length < nodesLength-1){
+      radomSetCont();
+    }
+    $('#content').appendChild($('#result').childNodes[nodesLength-1].cloneNode(true));
+   // $('#content').lastChild.style.opacity = 0.3;
+	$('#result').style.display = 'none';
+	//检测元素所在的位置  0 =>'left',1 =>'right',2 =>'middle'
+	var checkPos = function(index){
+		var n = parseInt(index/3);
+		pos['row'] = n;
+		if(index%3 == 0){
+			pos['pos'] = 0;
+		}else if(index%3 == 2){
+			pos['pos'] = 1;
+		}else {
+			pos['pos'] = 2;
+		}
+		return  pos;
+	}
+	//移动函数
+	var move = function(index){
+		style = $('#content').childNodes[index].getAttribute('style');
+				style = style.split(';');
+				style.pop();
+				style = style[style.length-1] + ";" + style[style.length-2];
+				$('#content').childNodes[place].setAttribute('style',  $('#content').childNodes[index].getAttribute('style'));
+				//$('#content').childNodes[place].setAttribute('id', index);
+				$('#content').childNodes[index].setAttribute('style', style);
+				place = index;
+	}
+	//拼图事件 
+    var spliceImg = function(){
+		$('#content').onclick = function(e){
+			var index;
+			 e = window.event ? window.event : e;
+			 box.push(place);
+			index = check(box , e.target.getAttribute('id'), 1);
+			//	console.log($('#content').childNodes[index+1].getAttribute('style'));
+			/*if(index)
+			pos = checkPos(index);*/
+			if(index+1 == place || index+3 == place || index-3 == place || index-1 == place){
+			  move(index);
+			}
+		};
+	}
+	spliceImg();
+ }
+ /*
+	ps:
+	    E6/7/8: 识别backgroundPositionX/Y, 不识别backgroundPosition
+    FireFox/Opera: 识别backgroundPosition, 不识别backgroundPositionX/Y
+    Safari/Chrome: 识别backgroundPosition及backgroundPositionX/Y
+*/
+</script>
+<style>
+#result,#bg,#content{width:503px; height:335px;color:red;}
+#result div,#content div{float:left;cursor: pointer;}
+#bg{background: url("cut.jpg") no-repeat scroll 0 0 transparent;display: none;left: 9px;position: absolute;top: 7px;z-index: -1;}
+#result{margin:50px 0px;}
+</style>
+</head>
+<body>
+
+<!--<form><input type="text" value="" id="row">x<input type="text" value="" id="col"><br/><input type="button"></form>-->
+<div id="result"></div>
+<div id="content"></div>
+<div id="bg"></div>
+<div id="cutimg"><img src="cut.jpg" id="pimg"/></div>
+</body>
+</html>

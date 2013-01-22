@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Drag</title>
+    <style>
+        .show{width:200px;height:265px;overflow:auto; list-style:none;margin:0px auto;padding:0px;}
+        .show li{line-height:30px;border:1px solid #ddd;cursor: move;background-color:yellow;margin:1px; text-indent:10px;}
+        #test,.box{width:100px;height:100px;border:1px solid #000; background-color:green;}
+        #demo{width:150px;height:150px;border:1px solid red;}
+        #demo h2{background-color:#ddd;padding:0px; margin:0px;cursor:move;}
+        #demo .box{width:100%;height:80%;}
+        .out{width:500px; height:400px; border:1px solid brown;margin:10px 0px;padding:10px;}
+        .small{width:100px; height:50px;border-radius:100px/50px;border:1px solid red;cursor:move;background-color:red;}
+    </style>
+    <script src="http://yui.yahooapis.com/3.5.0/build/yui/yui-min.js"></script>
+    <script>
+     YUI().use('dd-drag','dd-plugin','dd-constrain','dd-scroll',function(Y){
+        var dd = new Y.DD.Drag({
+            node:'#test'
+        }).plug(Y.Plugin.DDWinScroll);
+        var node1 = Y.one('#demo');
+        node1.plug(Y.Plugin.Drag);
+        node1.dd.addHandle('h2');
+        var node3 = new Y.DD.Drag({
+            node:'.small'
+        }).plug(Y.Plugin.DDConstrained,{
+            constrain2node:'.out'
+        });
+     });
+    </script>
+</head>
+<body>
+    <ul class="show">
+        <li>第1条新闻</li>
+        <li>第2条新闻</li>
+        <li>第3条新闻</li>
+        <li>第4条新闻</li>
+        <li>第5条新闻</li>
+        <li>第6条新闻</li>
+        <li>第7条新闻</li>
+        <li>第8条新闻</li>
+        <li>第9条新闻</li>
+        <li>第10条新闻</li>
+        <li>第11条新闻</li>
+        <li>第12条新闻</li>
+        <li>第13条新闻</li>
+        <li>第14条新闻</li>
+        <li>第15条新闻</li>
+        <li>第16条新闻</li>
+    </ul>
+    <div id="test"></div><br/>
+    <div id="demo">
+        <h2>拖着这里</h2>
+        <div class="box"></div>
+    </div>
+    <div class="out">
+        <div class="small"></div>
+    </div>
+</body>
+</html>
