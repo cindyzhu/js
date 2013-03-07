@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>事件</title>
+<script type="text/javascript" src="i12/jquery-1.7.1.min.js"></script>
+<script>
+ $(function(){
+    $('#selectAll').click(function(){
+       if(this.checked){
+         $('li input:not("#selectAll")').each(function(){
+         $(this).attr('checked',true);}) 
+       }else{
+         $('li input:not("#selectAll")').each(function(){
+         $(this).attr('checked',false);}) 
+       }
+    }
+    );
+    $('#delet').click(function(){
+          if($('#selectAll’checked').val()){
+            $('.box ul:not(".hd")').remove();
+          }else{
+           $('input:not("#selectAll"):checked').each(function(){
+             $(this).parents('ul').remove();
+           });
+          }
+    })
+ });
+</script>
+<style>
+ul,li{margin:0px;padding:0px;list-style:none;height:1%;overflow:hidden;}
+li{float:left; line-height:50px;width:25%;}
+.box{width:600px;height:1%;overflow:hilien;margin:0 auto;border:1px solid #000;background-color:#ddd;}
+ul.hd{background-color:gray;}
+ul{border-bottom:1px solid #404040;}
+ul li:first-child,ul li:last-child{width:12%;}
+ul li:nth-child(2){width:45%;}
+p{text-align:center;}
+</style>
+</head>
+<body>
+<div class="box">
+ <ul class="hd"><li><input type="checkbox" id="selectAll"/>全选</li><li>标题</li><li>发表日期</li><li>作者</li></ul>
+ <ul><li><input type="checkbox"></li><li>斯蒂芬斯蒂芬森防使得法国飞过海废话</li><li>2012-8-18</li><li>阿萨德</li></ul>
+ <ul><li><input type="checkbox"></li><li>城彼朔方供货商的风格是</li><li>2012-8-18</li><li>的分发给</li></ul>
+ <ul><li><input type="checkbox"></li><li>点点滴滴公司</li><li>2012-8-18</li><li>刚好</li></ul>
+ <ul> <li><input type="checkbox"></li><li>看见好看计划开发</li><li>2012-8-18</li><li>共和国</li></ul>
+ <ul><li><input type="checkbox"></li><li>尽快回家看见好看</li><li>2012-8-18</li><li>过户费</li></ul>
+ <ul><li><input type="checkbox"></li><li>骨灰级骨灰级刚好骨灰级刚好</li><li>2012-8-18</li><li>就感觉</li></ul>
+ <ul><li><input type="checkbox"></li><li>sdfsdf给很久很久好几个</li><li>2012-8-18</li><li>就回家</li></ul>
+ 
+ <p><input type="button" value="删除" id="delet"/></p>
+</div>
+</body>
+</html>
