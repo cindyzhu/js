@@ -1,0 +1,8 @@
+body{ background-color:#fff;}
+ul,li{margin:0px; padding:0px; list-style: none;}
+.edit_data{}
+.edit_data li{ position:relative;line-height: 30px; cursor: pointer;padding-left: 10px;}
+.edit_data{ margin: 10px;}
+.edit_data  li{margin:10px 0px;}
+.edit_data .ed_title{ float: left; min-width:100px;}
+.edit_data .discr{ width:300px; height:50px;}

@@ -1,0 +1,22 @@
+body{margin:0px; padding:0px; background-color:#000;}
+/* reste.css*/
+ul,li,h1{margin:0px; padding:0px; list-style: none;}
+.wrap{width:400px;margin:0px auto; height:600px; overflow: hidden;}
+.se{width:10002px; position: relative;}
+.s1,.s2{width:400px; height:600px;float:left;}
+.s1{background:url("bg1.jpg") -1px -2px no-repeat;}
+.s1 ul{margin:50px;}
+.s1 li{width:40px; height:40px; float:left; text-align:center; line-height:40px;color:#2E4362; 
+	background-color:#EFF9FF; border-radius:20px; margin:15px;opacity:0.5; cursor:pointer; font-weight:800;}
+/*s2*/
+.s2{background:url("bg2.jpg") 0px 0px no-repeat; text-align: center;}
+.s2 .content_box{margin:20px auto; width:300px;}
+.s2 .title{background-color:#fff; opacity:0.5; border-radius:10px;color:#000; font-weight:800; padding:0px 10px;height:40px; line-height: 40px; font-size:30px;}
+.s2 .content{width:275px;height:230px;margin:20px auto;text-align: center; background-color:#18749a; border-radius: 5px; border:10px solid #0c3803; background-size:100%;}
+.s2 .answer{ text-align: center;}
+.s2 .answer li{ opacity:0.8; color:#fff;display: inline-block; background-color:#000; border-radius:5px; width:30px;
+ height:30px; margin:10px; line-height:30px; cursor:pointer; vertical-align: top}
+.s2 .words{clear: both;}
+.s2 .words li{display: inline-block; width:30px; cursor:pointer; height:30px; background-color: #fff; border-radius: 5px;color:#404040; font-weight:800; font-size:18px; margin:2px 5px; line-height: 30px;}
+.s2 .mask{position: relative;top: -124px;height: 110px; display: none;}
+.suceess{width:500px;height:522px; background-color:#000; opacity: 0; display: none; position: relative;top:-509px; }

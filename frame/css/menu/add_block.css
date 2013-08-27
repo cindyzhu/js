@@ -1,0 +1,16 @@
+@import "cssgrids.css";
+body{ background-color:#fff; font: 12px/1.5 Microsoft YaHei,SimSun, Arial, Helvetica, san-serif;}
+ul,li,h1,h2{margin:0px; padding:0px; list-style: none;}
+.ref_page{border:1px solid #666; float:left;cursor: pointer;width: 100px;height: 36px;line-height: 36px;background-color: #eee;text-align: center;border-radius: 10px;margin-bottom: 10px;}
+.wrap{width:90%; padding: 5%;}
+.wrap .inp_info{overflow: hidden; clear: both;}
+.wrap input[type="text"]{border:1px solid #ccc;}
+.wrap .tit{width:50px; text-align: left; float: left;clear:both;margin:10px 0px;}
+.wrap .con{float: left;margin:10px 0px; }
+.module_list{ width: 660px;}
+.module_list .outer{border:1px solid #ddd;overflow:hidden; padding: 5px; width:656px; margin: 10px 0px; overflow: hidden;}
+.module_list .outer ul{width:1500px;}
+.module_list .btns{float: right;}
+.module_list .btns span{ display:inline-block;cursor:pointer;width:20px; height:20px; line-height: 20px; text-align: center; border:1px solid #404040; background-color:#ccc;margin:5px;}
+.module_list li{ display:inline-block;margin-right:10px;}
+.module_list li img{border:1px solid #ccc; cursor: pointer;}

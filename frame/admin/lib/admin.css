@@ -1,0 +1,7 @@
+body{padding:0px; margin:0px;}
+ul,li{margin:0px; padding: 0px; list-style: none;}
+.add_module{width:500px;border:1px solid #000; margin:0 auto;}
+.add_module li{padding: 10px 20px;border-bottom: 1px solid #000;}
+.add_module li:last-child{border:0px;}
+.add_module .sub_btn input{ margin-left:100px;width:100px;}
+.add_module li label{width:100px; display:inline-block; vertical-align: top;}

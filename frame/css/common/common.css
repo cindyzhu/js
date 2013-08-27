@@ -1,0 +1,12 @@
+body{background-color:#242424; overflow: auto; color: #ddd;}
+ul,li{margin:0px; padding:0px; list-style: none;}
+.wrap,.mian_page{width:auto;white-space:nowrap; }
+.top_page{border-bottom: 5px solid #393939;padding: 10px;}
+.nav_left{height:100%; width: 100%; float: left;}
+.nav_left li{ position:relative;line-height: 30px; cursor: pointer;border-bottom:1px dashed #333333; padding-left: 10px;}
+.nav_left .deal{position: absolute;background-color:#fff;font-size: 12px;width: 88px;text-align: center;top: 19px;left:56px; z-index:2; box-shadow:2px 3px 2px #ccc; display: none;}
+.nav_left .deal div:hover{ background-color:#F7F7F7;}
+.nav_left .deal a{color:#404040; text-decoration: none;}
+
+.page_info{height:100%;  display: none; float: left;}
+.show_page{height:100%; float:left; display: none;}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+	<link href="../css/menu/edit_page.css" rel="stylesheet"/>
+	<script type="text/javascript" src="../js/common/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="../js/common/jquery-ui-1.10.3.custom.min.js"></script>
+	<script type="text/javascript" src="../js/menu/edit_page.js"></script>
+</head>
+<body>
+<ul class="page_config">
+	<li id="u-4-20" data-info ="['1-6','5-6']">
+		<table border="1"><td width="16.6%" bgcolor="#DDDDDD">4</td><td width="83.3%" bgcolor="#DDDDDD">20</td></table>
+		<span>4-20</span>	
+	</li>
+	<li id="u-24" data-info ="['1-1']">
+		<table border="1"><td width="100%" bgcolor="#DDDDDD">24</td></table>
+		<span>24</span>	
+	</li>
+	<li id="u-16-8" data-info ="['2-3','1-3']">
+		<table border="1"><td width="66.6%" bgcolor="#DDDDDD">16</td><td width="33.3%" bgcolor="#DDDDDD">8</td></table>
+		<span>16-8</span>	
+	</li>
+	<li id="u-8-16" data-info ="['1-3','2-3']">
+		<table border="1"><td width="33.3%" bgcolor="#DDDDDD">8</td><td width="66.6%" bgcolor="#DDDDDD">16</td></table>
+		<span>8-16</span>	
+	</li>
+	<li id="u-11-5-8" data-info ="['11-24','5-24','1-3']">
+		<table border="1"><td width="45.8%" bgcolor="#DDDDDD">11</td><td width="20.8%" bgcolor="#DDDDDD">5</td><td width="33.3%" bgcolor="#DDDDDD">8</td></table>
+		<span>11-5-8</span>	
+	</li>
+	<li id="u-5-11-8" data-info ="['5-24','11-24','1-3']">
+		<table border="1"><td width="20.8%" bgcolor="#DDDDDD">5</td><td width="45.8%" bgcolor="#DDDDDD">11</td><td width="33.3%" bgcolor="#DDDDDD">8</td></table>
+		<span>5-11-8</span>	
+	</li>
+	<li id="u-5-10-9" data-info ="['5-24','5-12','3-8']">
+		<table border="1"><td width="20.8%" bgcolor="#DDDDDD">5</td><td width="41.7%" bgcolor="#DDDDDD">10</td><td width="37.5%" bgcolor="#DDDDDD">9</td></table>
+		<span>5-10-9</span>	
+	</li>
+	<li id="u-19-5" data-info ="['19-24','5-24']">
+		<table border="1"><td width="79.2%" bgcolor="#DDDDDD">19</td><td width="20.8%" bgcolor="#DDDDDD">5</td></table>
+		<span>19-5</span>	
+	</li>
+	<li id="u-18-16" data-info ="['3-4','1-4']">
+		<table border="1"><td width="75%" bgcolor="#DDDDDD">18</td><td width="25%" bgcolor="#DDDDDD">6</td></table>
+		<span>18-6</span>	
+	</li>
+	<li id="u-6-18" data-info ="['1-4','3-4']">
+		<table border="1"><td width="25%" bgcolor="#DDDDDD">6</td><td width="75%" bgcolor="#DDDDDD">18</td></table>
+		<span>6-18</span>	
+	</li>
+	<li id="u-12-12" data-info ="['1-2','1-2']">
+		<table border="1"><td width="50%" bgcolor="#DDDDDD">12</td><td width="50%" bgcolor="#DDDDDD">12</td></table>
+		<span>12-12</span>	
+	</li>
+	<li id="u-2-1-1-4" data-info ="['1-2','1-4','1-4']">
+		<table border="1"><td width="50%" bgcolor="#DDDDDD">12</td><td width="25%" bgcolor="#DDDDDD">6</td><td width="25%" bgcolor="#DDDDDD">6</td></table>
+		<span>12-6-6</span>	
+	</li>
+	<li id="u-6-6-6-6" data-info ="['1-4','1-4','1-4','1-4']">
+		<table border="1"><td width="25%" bgcolor="#DDDDDD">6</td><td width="25%" bgcolor="#DDDDDD">6</td><td width="25%" bgcolor="#DDDDDD">6</td><td width="25%" bgcolor="#DDDDDD">6</td></table>
+		<span>6-6-6-6</span>	
+	</li>
+	<li id="u-4-4-4-4-4-4" data-info ="['1-6','1-6','1-6','1-6','1-6','1-6']">
+		<table border="1"><td width="16.6%" bgcolor="#DDDDDD">4</td><td width="16.6%" bgcolor="#DDDDDD">4</td><td width="16.6%" bgcolor="#DDDDDD">4</td><td width="16.6%" bgcolor="#DDDDDD">4</td><td width="16.6%" bgcolor="#DDDDDD">4</td><td width="16.6%" bgcolor="#DDDDDD">4</td></table>
+		<span>4-4-4-4-4-4</span>	
+	</li>
+	<li id="u-3-12-9" data-info ="['1-8','1-2','3-8']">
+		<table border="1"><td width="12.5%" bgcolor="#DDDDDD">3</td><td width="50%" bgcolor="#DDDDDD">12</td><td width="37.5%" bgcolor="#DDDDDD">9</td></table>
+		<span>3-12-9</span>	
+	</li>
+</ul>
+<!--select MODE-->
+<div class="select_M">
+	<div class="hd"><h1>选择已有模块</h1></div>
+	<div class="bd"><input type="text" class="search_box" value=""/><input type="button" value="搜索" class="search_btn"/></div>
+	<div class="ft">
+		<ul id="moudle_list">
+			<li id="moudle1"><div class="moudle_title">新闻列表</div><span class="des">此模块是表述信息</span></li>
+			<li id="moudle2"><div class="moudle_title">左侧导航列表</div><span class="des">主要拥有导航信息展示</span></li>
+			<li id="moudle3"><div class="moudle_title">新闻列表2</div><span class="des">此模块是表述信息</span></li>
+			<li id="moudle4"><div class="moudle_title">左侧导航列表2</div><span class="des">主要拥有导航信息展示</span></li>
+		<ul>
+	</div>
+</div>
+<div class="add_block">添加布局</div><div class="ref_page">刷新页面</div>
+<div class="page_cont"></div>
+</body>
+</html>

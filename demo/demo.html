@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meat charset="utf-8"/>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript" src="jquery-ui-1.10.3.custom.min.js"></script>
+<style>
+body{margin:0px;padding: 0px;}
+.u24{width:1000px; height: 1000px;border:1px solid red; margin: 0 auto;}
+.u16{width:160px;height:100px;}
+.green{background-color:green;}
+.orange{background-color:orange;}
+.right{float:right;}
+.left{float:left;}
+.b_red{border:1px solid red;height:100%;}
+</style>
+</head>
+<body>
+<div class="drag_list">
+	<div id="drag_box" class="u16 orange">111111111</div>
+	<div id="drag_box" class="u16 green">222222222</div>
+</div>
+<div class="e_wrapList u24">
+	<div id="e_right" class="u16 right b_red">
+	</div>
+	<div id="e_left" class="u16 left b_red">
+	</div>
+</div>
+<script type="text/javascript">
+(function($){
+/*	$(".drag_list").accordion();
+	$( ".drag_list div[id^='drag']" ).draggable({
+			appendTo: "body",
+			helper: "clone",
+			cursor : "move"
+		});
+	$( ".e_wrapList div[id^='e_']" ).droppable({
+			activeClass: "ui-state-default",
+			hoverClass: "ui-state-hover",
+			accept: ":not(.ui-sortable-helper)",
+			drop: function( event, ui ) {
+				$(this).text( ui.draggable.text() ).appendTo( this );
+			}
+		})
+		.sortable({
+			//items: "li:not(.placeholder)",
+			sort: function() {
+				// gets added unintentionally by droppable interacting with sortable
+				// using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+				$( this ).removeClass( "ui-state-default" );
+			}
+		});
+*/
+$("body").append("<script>var aa = function(){ console.log(1111111);}aa();</script>");
+})(jQuery)
+</script>
+</body>
+</html>
